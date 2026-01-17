@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import before404 from '../public/404/404_before.png';
+import after404 from '../public/404/404_after.png';
 
 export default function NotFound() {
     return (
@@ -30,7 +32,7 @@ export default function NotFound() {
                     }}
                 >
                     <Image
-                        src="/404/404_before.png"
+                        src={before404}
                         alt="Normal state"
                         fill
                         className="object-contain"
@@ -68,7 +70,7 @@ export default function NotFound() {
                     }}
                 >
                     <Image
-                    src="/404/404_after.png"
+                    src={after404}
                     alt="Lost state"
                     fill
                     className="object-contain"
