@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  @apply bg-black text-white antialiased;
+}
+
+body {
+  @apply bg-black text-white antialiased;
+  background: transparent
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-hover{
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-hover:hover {
+  color: #8b5cf6; /* Tailwind's indigo-400 */
+  transform: translateY(-1px);
+}
