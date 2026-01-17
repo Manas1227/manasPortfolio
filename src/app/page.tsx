@@ -6,10 +6,7 @@ import AISearchBar from '@/components/AISearchBar';
 export default function Home() {
   return (
     <main>
-      <AnimatedBackground />
-      <Navbar />
       <Hero />
-      <AISearchBar />
     </main>
   );
 }

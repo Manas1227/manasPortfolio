@@ -1,5 +1,7 @@
-import { view } from "framer-motion/client";
 import "./globals.css";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import Navbar from "@/components/Navbar";
+import AISearchBar from "@/components/AISearchBar";
 
 export const metadata = {
   viewport: "width=device-width, initial-scale=1",
@@ -14,7 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AnimatedBackground />
+        <Navbar />
+        {children}
+        <AISearchBar />
+      </body>
     </html>
   );
 }
