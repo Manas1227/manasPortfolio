@@ -2,19 +2,22 @@
 
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const links = [
-    { href: "about", label: "About" },
-    { href: "projects", label: "Projects" },
-    { href: "education", label: "Education" },
-    { href: "ai", label: "AI" },
-    { href: "contact", label: "Contact" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/education", label: "Education" },
+    { href: "/ai", label: "AI" },
+    { href: "/contact", label: "Contact" },
 ]
 
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     // Close on outside click
     useEffect(() => {
@@ -40,9 +43,9 @@ export default function Navbar() {
                     hidden md:flex"
             >
                 {/* Brand */}
-                <span className="font-bold text-lg tracking-wide nav-hover">
+                <Link href="/" className="font-bold text-lg tracking-wide nav-hover">
                     MB
-                </span>
+                </Link>
 
                 {/* Divider */}
                 <span className="w-px h-7 bg-white/20" />
@@ -50,9 +53,9 @@ export default function Navbar() {
                 {/* Navigation Links */}
                 <div className="flex gap-6 py-1 item-center text-sm">
                 {links.map((link) => (
-                    <a key={link.href} href={link.href} className="nav-hover">
+                    <Link key={link.href} href={link.href} className="nav-hover">
                         {link.label}
-                    </a>
+                    </Link>
                 ))}
                 </div>
             </motion.nav>
@@ -67,12 +70,21 @@ export default function Navbar() {
                         flex flex-col"
             >
                 {/* Brand Button */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
+                <motion.button
+                    animate={{ rotate: isOpen ? 360 : 0 }}
+                    transition={{ duration: 0.10 }}
+                    onClick={() => {
+                        if (isOpen) {
+                            router.push("/");
+                            setIsOpen(false);
+                        } else {
+                            setIsOpen(true);
+                        }
+                    }}
                     className="px-4 py-3 font-bold tracking-wide text-center nav-hover"
                 >
                     MB
-                </button>
+                </motion.button>
 
                 {/* Expanded Links */}
                 {isOpen && (

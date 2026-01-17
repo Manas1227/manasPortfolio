@@ -22,7 +22,7 @@ export default function SearchBar() {
             >
                 <form onSubmit={handleSubmit} className="relative">
                     <motion.div
-                        animate={{ width: isExpanded ? 400 : 60 }}
+                        animate={{ width: isExpanded ? Math.min(window.innerWidth - 40, 500) : 60 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="glass rounded-full px-4 py-3 flex items-center gap-3 overflow-hidden"
                         style={{ transformOrigin: 'center' }}

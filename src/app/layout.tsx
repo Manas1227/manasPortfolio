@@ -1,11 +1,15 @@
-import { view } from "framer-motion/client";
 import "./globals.css";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import Navbar from "@/components/Navbar";
+import AISearchBar from "@/components/AISearchBar";
 
 export const metadata = {
-  viewport: "width=device-width, initial-scale=1",
   title: "Manas Portfolio",
   description: "Welcome to my personal portfolio website!",
 };
+
+// Exported seperate because Next.js 14+ requires it
+export const viewport = "width=device-width, initial-scale=1";
 
 export default function RootLayout({
   children,
@@ -14,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <AnimatedBackground />
+        {children}
+        <AISearchBar />
+      </body>
     </html>
   );
 }
