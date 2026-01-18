@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 export default function NotFound() {
     return (
@@ -30,7 +31,7 @@ export default function NotFound() {
                     }}
                 >
                     <Image
-                        src="/404/404_before.png"
+                        src={withBasePath("/404/404_before.png")}
                         alt="Normal state"
                         fill
                         className="object-contain"
@@ -68,12 +69,12 @@ export default function NotFound() {
                     }}
                 >
                     <Image
-                    src="/404/404_after.png"
-                    alt="Lost state"
-                    fill
-                    className="object-contain"
-                    priority
-                    sizes="(max-width: 768px) 176px, 256px"
+                        src={withBasePath("/404/404_after.png")}
+                        alt="Lost state"
+                        fill
+                        className="object-contain"
+                        priority
+                        sizes="(max-width: 768px) 176px, 256px"
                     />
                 </motion.div>
             </motion.div>
