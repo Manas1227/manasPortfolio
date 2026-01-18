@@ -7,7 +7,7 @@ export default function Hero() {
     return(
         <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
             <motion.img
-                src={image3d.src}
+                src="/MB_HeadShot.png"
                 alt="Profile Picture"
                 initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
                 animate={{ 
