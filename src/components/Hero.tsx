@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import image3d from '../public/MB_HeadShot.png';
 
 export default function Hero() {
     return(
