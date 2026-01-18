@@ -1,6 +1,5 @@
 import "./globals.css";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import Navbar from "@/components/Navbar";
 import AISearchBar from "@/components/AISearchBar";
 
 export const metadata = {

@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 const links = [
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/education", label: "Education" },
-    { href: "/ai", label: "AI" },
-    { href: "/contact", label: "Contact" },
+    { href: withBasePath("/about"), label: "About" },
+    { href: withBasePath("/projects"), label: "Projects" },
+    { href: withBasePath("/education"), label: "Education" },
+    { href: withBasePath("/ai"), label: "AI" },
+    { href: withBasePath("/contact"), label: "Contact" },
 ]
 
 export default function Navbar() {
