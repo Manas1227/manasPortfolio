@@ -91,7 +91,7 @@ const curtainVariant: Variants = {
 export default function AboutSection() {
   return (
     <section className="relative min-h-screen text-white">
-      <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-y-[5vh]">
+      <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-y-[2vh]">
 
         {/* ROW 1: GREETING */}
         <motion.h1
@@ -112,16 +112,16 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 text-1xl md:text-2xl"
+            className="space-y-4 text-1xl md:text-2xl"
           >
-            <p className="text-gray-200 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               I’m a software developer who enjoys building reliable, 
               scalable systems and working across the backend, cloud, and overall app workflow. 
               I’ve spent the last couple of years contributing to web applications, 
               improving performance, and supporting team processes in fast‑moving environments.
             </p>
 
-            <p className="text-gray-200 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               I’m also expanding into data analytics and machine learning through my graduate studies, 
               adding a stronger data perspective to my engineering work.
             </p>
@@ -165,7 +165,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-6">
+          className="flex flex-col gap-4">
           <span className="text-sm mx-5 uppercase tracking-widest text-gray-500">
             Tools & technologies I worked with
           </span>
@@ -198,25 +198,24 @@ export default function AboutSection() {
                     flex flex-col gap-3"
                 >
                   {/* Tech field label */}
-                  <span className="text-lg uppercase text-center tracking-widest text-teal-400/80">
+                  <span className="text-sm uppercase text-center tracking-widest text-teal-400/80">
                     {group.field}
                   </span>
           
                   {/* Stack pills */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
                     {group.stacks.map((tech) => (
                       <div
                         key={tech.name}
                         className="flex items-center gap-2 px-3 py-1
-                                   text-base text-white/90 flex-shrink-0
+                                   text-xm text-white/90 flex-shrink-0
                                    hover:scale-110 transition-transform duration-200 hover:bg-white/10 rounded-full p-2"
                       >
                         <motion.img
                           src={tech.src}
                           alt={tech.name}
-                          width={25}
-                          height={25}
-                          className=""
+                          width={20}
+                          height={20}
                         />
                         {tech.name}
                       </div>
