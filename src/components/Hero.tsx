@@ -25,6 +25,7 @@ export default function Hero() {
                         ease: "easeInOut"
                     }
                 }}
+                whileHover={{scale: 1.1, rotateY: 10}}
                 className="w-44 h-60 md:w-64 md:h-80 rounded-lg mb-8 relative z-10"
                 style={{
                     maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 10%, black 20%, black 80%, transparent 90%)',
