@@ -11,7 +11,6 @@ const links = [
     { href: "/projects", label: "Projects" },
     { href: "/education", label: "Education" },
     { href: "/ai", label: "AI" },
-    { href: "/contact", label: "Contact" },
 ]
 
 export default function Navbar() {
@@ -59,6 +58,10 @@ export default function Navbar() {
                     </Link>
                 ))}
                 </div>
+
+                <Link href="/contact" className="nav-hover text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
+                    Contact
+                </Link>
             </motion.nav>
 
             {/* Mobile NavBar */}

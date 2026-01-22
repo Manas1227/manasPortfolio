@@ -44,9 +44,10 @@ export default function CursorDot() {
         }}
         className="
             fixed top-0 left-0 z-[9999]
-            w-3 h-3 rounded-full
-            bg-gray-500/80
-        "
+            w-5 h-5 rounded-full
+            bg-white
+            pointer-events-none
+            mix-blend-difference"
         />
     );
 }
