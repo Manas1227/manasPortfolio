@@ -25,3 +25,13 @@ body {
   color: #8b5cf6; /* Tailwind's indigo-400 */
   transform: translateY(-1px);
 }
+
+button, img, Link {
+  user-select: none;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.20);
+  color: rgba(255, 255, 255);
+  text-shadow: 0.5px 0.5px 1px #8b5cf6;
+}

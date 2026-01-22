@@ -1,8 +1,7 @@
 import "./globals.css";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import AISearchBar from "@/components/AISearchBar";
-import CurserDot from "@/components/CurserDot";
-
+import CursorDot from "@/components/CursorDot";
 export const metadata = {
   title: "Manas Portfolio",
   description: "Welcome to my personal portfolio website!",
@@ -20,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <AnimatedBackground />
-        <CurserDot />
+        <CursorDot />
         {children}
         <AISearchBar />
       </body>
