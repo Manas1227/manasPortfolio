@@ -104,11 +104,14 @@ export default function Navbar() {
                             key={link.label}
                             href={withBasePath(link.href)}
                             onClick={() => setIsOpen(false)}
-                            className="text-sm nav-hover"
+                            className="text-sm"
                         >
                             {link.label}
                         </motion.a>
                         ))}
+                        <Link href="/contact" className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1" onClick={() => setIsOpen(false)}>
+                            Contact
+                        </Link>
                     </motion.div>
                 )}
             </motion.div>
