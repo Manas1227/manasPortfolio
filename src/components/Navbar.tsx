@@ -100,14 +100,14 @@ export default function Navbar() {
                     >
                         <span className="h-px w-full bg-white/20" />
                         {links.map((link) => (
-                        <motion.a
-                            key={link.label}
-                            href={withBasePath(link.href)}
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm"
-                        >
-                            {link.label}
-                        </motion.a>
+                            <motion.a
+                                key={link.label}
+                                href={withBasePath(link.href)}
+                                onClick={() => setIsOpen(false)}
+                                className="text-sm"
+                            >
+                                {link.label}
+                            </motion.a>
                         ))}
                         <Link href="/contact" className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1" onClick={() => setIsOpen(false)}>
                             Contact
