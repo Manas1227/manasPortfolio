@@ -98,9 +98,9 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold leading-tight"
+          className="text-3xl md:text-4xl font-bold"
         >
-          Hello 👋 I build scalable systems with clean UI and reliable backend.
+          Hello <span className="inline-block animate-wave hover:animate-none">👋</span> I build scalable systems with clean UI and reliable backend.
         </motion.h1>
 
         {/* ROW 2: CONTENT + ANIMATION */}
@@ -166,7 +166,7 @@ export default function AboutSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-4">
-          <span className="text-sm mx-5 uppercase tracking-widest text-gray-500">
+          <span className="gray-m-text">
             Tools & technologies I worked with
           </span>
 
