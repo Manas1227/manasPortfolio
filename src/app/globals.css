@@ -17,7 +17,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.nav-hover{
+.nav-hover {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -34,4 +34,19 @@ button, img, Link {
   background: rgba(255, 255, 255, 0.20);
   color: rgba(255, 255, 255);
   text-shadow: 0.5px 0.5px 1px #8b5cf6;
+}
+
+.gray-m-text {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: medium;
+  color: text-gray-400;
+  text-align: center;
+  @apply md:text-lg text-gray-400 
+}
+
+.gray-s-text {
+  font-size: medium; 
+  color: text-gray-300;
+  @apply md:text-base text-gray-300
 }
