@@ -5,6 +5,10 @@ import CursorDot from "@/components/CursorDot";
 export const metadata = {
   title: "Manas Portfolio",
   description: "Welcome to my personal portfolio website!",
+  icon: {
+    url: "/favicon.ico",
+    type: "image/x-icon",
+  },
 };
 
 // Exported seperate because Next.js 14+ requires it
