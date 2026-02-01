@@ -44,7 +44,7 @@ export default function CursorDot() {
         }}
         className="
             fixed top-0 left-0 z-[9999]
-            w-5 h-5 rounded-full
+            w-6 h-6 rounded-full
             bg-white
             pointer-events-none
             mix-blend-difference"

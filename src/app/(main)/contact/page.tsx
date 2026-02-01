@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { withBasePath } from "@/lib/basePath";
 import Link from "next/link";
 
-const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Github Pages"];
+const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Resend"];
 
 const GETINTOUCH = [
   {name: "Email", image: "/tech/email_wb.svg", href: "mailto:manasbhut@gmail.com"},
@@ -20,8 +20,7 @@ const LOCATION = [
 ]
 
 export default function ContactPage() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<{type: "success" | "error", message : string} | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,18 +38,23 @@ export default function ContactPage() {
     }
 
     try {
+      if (!payload.v_name || !payload.v_email || !payload.v_message) {
+        throw new Error("Please fill in all required fields.");
+      }
+      
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      if(!res.ok) throw new Error("Failed to send message.");
+      if(!res.ok) throw new Error("Failed to send message. Please connect via email or linkedin.");
 
-      setStatus("Message sent successfully!");
+      setStatus({type: "success", message: "Message sent successfully!"});
       form.reset();
-    } catch (error) {
-      setStatus("Something went wrong. Try again.");
+    } catch (error: Error | any) {
+      const msg = error instanceof Error ? error.message : "Something went wrong. Please try again.";
+      setStatus({type: "error", message: msg });
     } finally {
       setLoading(false);
     }
@@ -79,7 +83,6 @@ export default function ContactPage() {
 
           {/* COL-2 FORM */}
           <motion.form
-              ref={formRef}
               onSubmit={handleSubmit}
               initial="hidden"
               whileInView="visible"
@@ -115,15 +118,14 @@ export default function ContactPage() {
                           focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"
               />
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(20,184,166,0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="px-6 py-3 mt-2 bg-teal-500 rounded-lg text-black font-semibold transition-all"
+                className="px-6 py-3 mt-2 bg-teal-500 rounded-lg text-black font-semibold transition-all
+                          hover:bg-teal-600"
               >
                 {loading ? "Sending..." : "Send Message"}
               </motion.button>
-              {status && status.includes("successfully") && <p className="text-sm text-teal-400 text-center mt-2">{status}</p>}
-              {status && status.includes("wrong") && <p className="text-sm text-pink-400 text-center mt-2">{status}</p>}
+              {status && <p className={`text-sm text-center mt-2 ${status.type === 'error' ? 'text-pink-400' : 'text-teal-500'}`}>{status.message}</p>}
           </motion.form>
       </motion.div>
       
@@ -178,6 +180,7 @@ export default function ContactPage() {
           <span className="gray-m-text">
             Made with ❤️ using
           </span>
+
           {LIBRARIES.map((lib) => (
             <motion.div
               key={lib}
