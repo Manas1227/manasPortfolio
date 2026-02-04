@@ -1,6 +1,5 @@
 "use client";
 
-import { withBasePath } from "@/lib/basePath";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -46,7 +45,7 @@ function DraggableImage({ onReload, isReload }: { onReload: () => void; isReload
     const [hoverEnabled, setHoverEnabled] = useState(true);
     return (
         <motion.img
-            src={withBasePath("/MB_HeadShot.png")}
+            src={"/MB_HeadShot.png"}
             alt="Profile Picture"
             initial={isReload ? false : { opacity: 0, scale: 0.8, rotateY: -15 }}
             animate={{ 

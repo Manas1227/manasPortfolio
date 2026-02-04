@@ -1,72 +1,71 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { withBasePath } from "@/lib/basePath";
 
 const techGroups = [
   {
     field: "Languages",
     stacks: [
-      { name: "Java", src: withBasePath("/tech/java.svg") },
-      { name: "JavaScript", src: withBasePath("/tech/javascript.svg") },
-      { name: "TypeScript", src: withBasePath("/tech/typescript.svg") },
-      { name: "Python", src: withBasePath("/tech/python.svg") },
-      { name: "SQL", src: withBasePath("/tech/sql.svg") },
+      { name: "Java", src: "/tech/java.svg" },
+      { name: "JavaScript", src: "/tech/javascript.svg" },
+      { name: "TypeScript", src: "/tech/typescript.svg" },
+      { name: "Python", src: "/tech/python.svg" },
+      { name: "SQL", src: "/tech/sql.svg" },
     ],
   },
   {
     field: "Web Development",
     stacks: [
-      { name: "Node.js", src: withBasePath("/tech/nodejs.svg") },
-      { name: "React.js", src: withBasePath("/tech/react.svg") },
-      { name: "Express", src: withBasePath("/tech/express.svg") },
-      { name: "Next.js", src: withBasePath("/tech/nextjs.svg") },
-      { name: "HTML", src: withBasePath("/tech/html.svg") },
-      { name: "CSS", src: withBasePath("/tech/css.svg") },
-      { name: "Socket.io", src: withBasePath("/tech/socket.svg") },
+      { name: "Node.js", src: "/tech/nodejs.svg" },
+      { name: "React.js", src: "/tech/react.svg" },
+      { name: "Express", src: "/tech/express.svg" },
+      { name: "Next.js", src: "/tech/nextjs.svg" },
+      { name: "HTML", src: "/tech/html.svg" },
+      { name: "CSS", src: "/tech/css.svg" },
+      { name: "Socket.io", src: "/tech/socket.svg" },
     ],
   },
   {
     field: "Databases",
     stacks: [
-      { name: "MySQL", src: withBasePath("/tech/mysql.svg") },
-      { name: "PostgreSQL", src: withBasePath("/tech/postgresql.svg") },
-      { name: "DynamoDB", src: withBasePath("/tech/dynamodb.svg") },
-      { name: "MongoDB", src: withBasePath("/tech/mongodb.svg") },
-      { name: "Redis", src: withBasePath("/tech/redis.svg") },
+      { name: "MySQL", src: "/tech/mysql.svg" },
+      { name: "PostgreSQL", src: "/tech/postgresql.svg" },
+      { name: "DynamoDB", src: "/tech/dynamodb.svg" },
+      { name: "MongoDB", src: "/tech/mongodb.svg" },
+      { name: "Redis", src: "/tech/redis.svg" },
     ],
   },
   {
     field: "Cloud Platforms",
     stacks: [
-      { name: "AWS", src: withBasePath("/tech/aws.svg") },
-      { name: "IBM Cloud", src: withBasePath("/tech/ibm.svg") },
-      { name: "Serverless", src: withBasePath("/tech/serverless.svg") },
+      { name: "AWS", src: "/tech/aws.svg" },
+      { name: "IBM Cloud", src: "/tech/ibm.svg" },
+      { name: "Serverless", src: "/tech/serverless.svg" },
     ],
   },
   {
     field: "Testing",
     stacks: [
-      { name: "Jest", src: withBasePath("/tech/jest.svg") },
-      { name: "Mocha", src: withBasePath("/tech/mocha.svg") },
+      { name: "Jest", src: "/tech/jest.svg" },
+      { name: "Mocha", src: "/tech/mocha.svg" },
     ]
   },
   {
     field: "Data Analytics & ML",
     stacks: [
-      { name: "Pandas", src: withBasePath("/tech/pandas.svg") },
-      { name: "NumPy", src: withBasePath("/tech/numpy.svg") },
-      { name: "Scikit-Learn", src: withBasePath("/tech/scikitlearn.svg") },
-      { name: "Tableau", src: withBasePath("/tech/tableau.svg") },
-      { name: "Power BI", src: withBasePath("/tech/powerbi.svg") },
+      { name: "Pandas", src: "/tech/pandas.svg" },
+      { name: "NumPy", src: "/tech/numpy.svg" },
+      { name: "Scikit-Learn", src: "/tech/scikitlearn.svg" },
+      { name: "Tableau", src: "/tech/tableau.svg" },
+      { name: "Power BI", src: "/tech/powerbi.svg" },
     ]
   },
   {
     field: "DevOps & Tools",
     stacks: [
-      { name: "Docker", src: withBasePath("/tech/docker.svg") },
-      { name: "Git", src: withBasePath("/tech/git.svg") },
-      { name: "Agile", src: withBasePath("/tech/agile.svg") },
+      { name: "Docker", src: "/tech/docker.svg" },
+      { name: "Git", src: "/tech/git.svg" },
+      { name: "Agile", src: "/tech/agile.svg" },
     ],
   }
 ];
@@ -130,7 +129,7 @@ export default function AboutSection() {
           {/* Right: Animated visual */}
           <div className="flex item-center justify-center w-full">
             <motion.img
-                src={withBasePath("/MB_About.png")}
+                src={"/MB_About.png"}
                 alt="Profile Picture"
                 initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
                 animate={{ 
