@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { withBasePath } from "@/lib/basePath";
 
 const links = [
     { href: "/about", label: "About" },
@@ -102,7 +101,7 @@ export default function Navbar() {
                         {links.map((link) => (
                             <motion.a
                                 key={link.label}
-                                href={withBasePath(link.href)}
+                                href={link.href}
                                 onClick={() => setIsOpen(false)}
                                 className="text-sm"
                             >

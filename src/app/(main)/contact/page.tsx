@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { withBasePath } from "@/lib/basePath";
 import Link from "next/link";
 
 const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Resend"];
@@ -153,14 +152,14 @@ export default function ContactPage() {
                         hover:scale-110 transition-transform duration-200 hover:bg-teal-500/10
                         min-w-36"
             >
-              <img src={withBasePath(link.image)} alt={link.name} className="w-5 h-5"/>
+              <img src={link.image} alt={link.name} className="w-5 h-5"/>
               {link.name}
             </motion.a>
           ))}
 
           {/* Resume */}
           <motion.a
-            href={withBasePath("/Your_Resume.pdf")}
+            href={"/Your_Resume.pdf"}
             download
             className="flex items-center px-4 py-2 bg-white/10 rounded-lg
                       hover:scale-110 transition-transform duration-200 hover:bg-teal-500 hover:text-black"
