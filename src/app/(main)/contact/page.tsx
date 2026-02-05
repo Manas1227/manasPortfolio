@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+
+const INTROWORDS = ["a project idea", "a question", "a feature", "a bug", "new idea", "a job opportunity"];
 
 const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Resend"];
 
@@ -21,6 +23,14 @@ const LOCATION = [
 export default function ContactPage() {
   const [status, setStatus] = useState<{type: "success" | "error", message : string} | null>(null);
   const [loading, setLoading] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % INTROWORDS.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,15 +80,36 @@ export default function ContactPage() {
       {/* ROW-1 */}
       <motion.div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-16">
           {/* COL-1 HEADER */}
-          <motion.h1
+          <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={rowVariant}
-              className="text-4xl md:text-5xl font-bold text-center"
+              className="flex flex-col items-center justify-center gap-4"
           >
-              Let's Connect! 📬
-          </motion.h1>
+            <motion.h4 className="content-text text-center">
+              I'm excited to hear from you. <br /> Whether you have
+            </motion.h4>
+            <span className="relative flex overflow-hidden w-3/5 h-10
+                            content-text
+                          bg-teal-500/20 border-teal-500 border-2 rounded-lg items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={INTROWORDS[index]}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute font-semibold text-2xl"
+                >
+                  {INTROWORDS[index]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <motion.h4 className="content-text">
+              or just want to say H<span className="text-teal-400">i</span>
+            </motion.h4>
+          </motion.div>
 
           {/* COL-2 FORM */}
           <motion.form
@@ -89,6 +120,9 @@ export default function ContactPage() {
               variants={rowVariant}
               className="w-full flex flex-col gap-4"
           >
+              <motion.h4 className="title">
+                Let's Connect!
+              </motion.h4>
               <input
                 type="text"
                 name="visiter_name"
