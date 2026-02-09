@@ -97,7 +97,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="title"
         >
           Hello <span className="inline-block animate-wave hover:animate-none">👋</span> I build scalable systems with clean UI and reliable backend.
         </motion.h1>
@@ -111,16 +111,16 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4 text-1xl md:text-2xl"
+            className="content-text"
           >
-            <p className="text-gray-300 leading-relaxed">
+            <p className="leading-relaxed">
               I’m a software developer who enjoys building reliable, 
               scalable systems and working across the backend, cloud, and overall app workflow. 
               I’ve spent the last couple of years contributing to web applications, 
               improving performance, and supporting team processes in fast‑moving environments.
             </p>
 
-            <p className="text-gray-300 leading-relaxed">
+            <p className="leading-relaxed">
               I’m also expanding into data analytics and machine learning through my graduate studies, 
               adding a stronger data perspective to my engineering work.
             </p>

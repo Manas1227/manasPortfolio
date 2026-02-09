@@ -22,8 +22,8 @@ body {
 }
 
 .nav-hover:hover {
-  color: #8b5cf6; /* Tailwind's indigo-400 */
   transform: translateY(-1px);
+  @apply text-violet-500;
 }
 
 button, img, Link {
@@ -31,9 +31,8 @@ button, img, Link {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.20);
-  color: rgba(255, 255, 255);
-  text-shadow: 0.5px 0.5px 1px #8b5cf6;
+  text-shadow: 0.5px 0.5px 1px #8b5cf6; /* tailwind's violet-500 */
+  @apply bg-slate-400/20 text-white;
 }
 
 .gray-m-text {
@@ -42,11 +41,24 @@ button, img, Link {
   font-size: medium;
   color: text-gray-400;
   text-align: center;
-  @apply md:text-lg text-gray-400 
+  @apply md:text-lg text-gray-400;
 }
 
 .gray-s-text {
   font-size: medium; 
   color: text-gray-300;
-  @apply md:text-base text-gray-300
+  @apply md:text-base text-gray-300;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  @apply md:text-4xl text-3xl;
+}
+
+@layer components {
+  .content-text {
+    text-align: justify;
+    @apply md:text-2xl text-xl text-gray-200 space-y-4;
+  }
 }
