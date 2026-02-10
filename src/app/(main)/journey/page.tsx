@@ -2,24 +2,26 @@
 
 import { timeline } from "@/data/timeline";
 import type { EducationItem, ExperienceItem } from "@/data/timeline";
-import { motion, useReducedMotion, Variants } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, Variants } from "framer-motion";
 import { useState } from "react";
 
 export default function TimelinePage() {
-  const containerVariants = {
-    rest: { opacity: 0, y: 30 },
-    inView: { opacity: 1, y: 0, transition: { staggerChildren: 0.4 } },
-    hover: {}
+  
+  const timelineItemVariants: Variants = {
+    rest: { opacity: 0, y: 20 },
+    inView: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+    hover: { },
   }
-
+  
   const logoVariants: Variants = {
-    rest: { x: 18, scale: 0.92, opacity: 0 },
+    rest:{ x: 10, scale: 0.5, opacity: 0 },
     hover: useReducedMotion()
-      ? { x: 0, scale: 1, opacity: 1, transition: { duration: 0.12 } }
-      : { x: 0, scale: 1.06, opacity: 1, transition: { type: "spring", stiffness: 320, damping: 24 } },
+      ? { x: 0, scale: 1, opacity: 1, transition: { duration: 0.15 } }
+      : { x: 0, scale: 1.05, opacity: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
   };
 
   const [curtainVisible, setCurtainVisible] = useState<{show: "all" | "education" | "experience" } | null >(null);
+
   let visibleTimelineItems = timeline;
   if (curtainVisible) {
     switch (curtainVisible.show) {
@@ -33,11 +35,13 @@ export default function TimelinePage() {
         visibleTimelineItems = timeline;
     }
   }
+  
   return (
     <section className="min-h-screen px-6 py-24 text-white">
       <div className="max-w-5xl mx-auto gap-y-[2vh] flex flex-col">
         <h1 className="title">My Journey</h1>
 
+        { /* Filter Buttons */ }
         <div className="flex gap-4 w-full-11 pl-11 justify-center">
           <button
             className={`px-4 py-2 rounded-2xl border w-1/2 ${curtainVisible?.show === "education" ? "bg-blue-500/20 border-blue-500" : "border-blue-400 hover:border-blue-600"}`}
@@ -53,56 +57,76 @@ export default function TimelinePage() {
           </button>
         </div>
 
-        <div className="border-l-4 border-white/20 pl-10">
-          {visibleTimelineItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial="rest"
-              whileInView="inView"
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative mb-10 mt-10"
-              whileHover="hover"
-              whileFocus="hover"
-              variants={containerVariants}
-            >
-              {/* Dot */}
-              <span
-                className={`absolute top-0 -left-11 w-1 h-full rounded-full 
-                ${
-                  item.type === "education"
-                    ? "bg-blue-500"
-                    : "bg-green-500"
-                }`}
-              />
+        {/* Timeline Container */ }
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={curtainVisible?.show ?? "all"}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="relative pl-10"
+          >          
+            {/* Vertical Line */ }
+            <motion.span
+              initial={{ height: 0 }}
+              animate={{ height: "100%" }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="absolute -left-[3px] top-0 w-[2px] bg-white/20"
+            />
 
-              {/* Organization Logo on Hover */}
-              <div className="hidden md:block absolute right-1/3 -top-4 pointer-events-none">
-                <motion.img
-                  src={item.orgLogo}
-                  alt={item.organization}
-                  width={"150px"}
-                  height={"100px"}
-                  className="rounded-md bg-transparent"
-                  aria-hidden={item.organization ? "false" : "true"}
-                  variants={logoVariants}
+            {/* Timeline Items */ }
+            {visibleTimelineItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial="rest"
+                whileInView="inView"
+                viewport={{ once: true }}
+                className="relative mb-10 mt-10"
+                whileHover="hover"
+                whileFocus="hover"
+                variants={timelineItemVariants}
+              >
+                
+                {/* Education/Experience Color-Bar */}
+                <motion.span
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.5 + (index * 0.3) }}
+                  className={`absolute top-0 -left-11 w-[4px] h-full rounded-full 
+                  ${
+                    item.type === "education" ? "bg-blue-500" : "bg-green-500"
+                  }`}
                 />
-              </div>
 
-              { item.type == "experience" && item.role.length > 1 &&(
-                <HirarchyExperienceItem item={item} />
-              )}
+                {/* Organization Logo on Hover */}
+                <div className="hidden md:block absolute right-1/3 -top-4 pointer-events-none">
+                  <motion.img
+                    src={item.orgLogo}
+                    alt={item.organization}
+                    width={"150px"}
+                    height={"100px"}
+                    className="rounded-md bg-transparent"
+                    aria-hidden={item.organization ? "false" : "true"}
+                    variants={logoVariants}
+                  />
+                </div>
 
-              { item.type == "experience" && item.role.length == 1 &&(
-                <ExperienceItem item={item} />
-              )}
+                { item.type == "experience" && item.role.length > 1 &&(
+                  <HirarchyExperienceItem item={item} />
+                )}
 
-              { item.type == "education" && (
-                <EducationItem item={item} />
-              )}
-            </motion.div>
-          ))}
-        </div>
+                { item.type == "experience" && item.role.length == 1 &&(
+                  <ExperienceItem item={item} />
+                )}
+
+                { item.type == "education" && (
+                  <EducationItem item={item} />
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
