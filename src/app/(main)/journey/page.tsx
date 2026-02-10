@@ -42,7 +42,7 @@ export default function TimelinePage() {
         <h1 className="title">My Journey</h1>
 
         { /* Filter Buttons */ }
-        <div className="flex gap-4 w-full-11 pl-11 justify-center">
+        <div className="flex gap-4 justify-center md:w-full-11 md:pl-11">
           <button
             className={`px-4 py-2 rounded-2xl border w-1/2 ${curtainVisible?.show === "education" ? "bg-blue-500/20 border-blue-500" : "border-blue-400 hover:border-blue-600"}`}
             onClick={() => setCurtainVisible(curtainVisible?.show === "education" ? null : { show: "education" })}
@@ -111,18 +111,25 @@ export default function TimelinePage() {
                     variants={logoVariants}
                   />
                 </div>
+                
+                <motion.div
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.5 + (index * 0.3) }}
+                  className="relative z-10"
+                >
+                  { item.type == "experience" && item.role.length > 1 &&(
+                    <HirarchyExperienceItem item={item} />
+                  )}
 
-                { item.type == "experience" && item.role.length > 1 &&(
-                  <HirarchyExperienceItem item={item} />
-                )}
+                  { item.type == "experience" && item.role.length == 1 &&(
+                    <ExperienceItem item={item} />
+                  )}
 
-                { item.type == "experience" && item.role.length == 1 &&(
-                  <ExperienceItem item={item} />
-                )}
-
-                { item.type == "education" && (
-                  <EducationItem item={item} />
-                )}
+                  { item.type == "education" && (
+                    <EducationItem item={item} />
+                  )}
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>

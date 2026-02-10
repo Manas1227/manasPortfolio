@@ -42,9 +42,11 @@ export default function Navbar() {
                     hidden md:flex"
             >
                 {/* Brand */}
-                <Link href="/" className="font-bold text-lg tracking-wide nav-hover">
-                    MB
-                </Link>
+                <div className="font-bold text-lg tracking-wide">
+                    <ModifiedLink href="/">
+                        MB
+                    </ModifiedLink>
+                </div>
 
                 {/* Divider */}
                 <span className="w-px h-7 bg-white/20" />
@@ -52,15 +54,17 @@ export default function Navbar() {
                 {/* Navigation Links */}
                 <div className="flex gap-6 py-1 item-center text-sm">
                 {links.map((link) => (
-                    <Link key={link.href} href={link.href} className="nav-hover">
+                    <ModifiedLink key={link.href} href={link.href}>
                         {link.label}
-                    </Link>
+                    </ModifiedLink>
                 ))}
                 </div>
 
-                <Link href="/contact" className="nav-hover text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
-                    Contact
-                </Link>
+                <div className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
+                    <ModifiedLink href="/contact">
+                        Contact
+                    </ModifiedLink>
+                </div>
             </motion.nav>
 
             {/* Mobile NavBar */}
@@ -116,4 +120,34 @@ export default function Navbar() {
             </motion.div>
         </>
     );
+}
+
+
+function ModifiedLink({ href, children } : { href: string, children: string }) {
+  return (
+    <motion.a
+      initial="initial"
+      whileHover="hovered"
+      href={href}
+      className="relative block overflow-hidden nav-hover"
+    >
+      <motion.div
+        variants={{
+          initial: { y: 0 },
+          hovered: { y: "-100%" }
+        }}
+      >
+        {children}
+      </motion.div>
+      <motion.div
+        className="absolute inset-0"
+        variants={{
+          initial: { y: "100%" },
+          hovered: { y: 0 }
+        }}
+      >
+        {children}
+      </motion.div>
+    </motion.a>
+  );
 }
