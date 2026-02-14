@@ -20,9 +20,9 @@ export default function Navbar( { setExpandSearch } : { setExpandSearch: (value:
     // Close on outside click
     useEffect(() => {
         function handleClick(e: MouseEvent) {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
-            setIsOpen(false);
-        }
+            if (ref.current && !ref.current.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
         }
         document.addEventListener("mousedown", handleClick);
         return () => document.removeEventListener("mousedown", handleClick);
@@ -52,18 +52,18 @@ export default function Navbar( { setExpandSearch } : { setExpandSearch: (value:
 
                 {/* Navigation Links */}
                 <div className="flex gap-6 py-1 item-center text-sm">
-                {links.map((link) => (
-                    <ModifiedLink key={link.href} href={link.href}>
-                        {link.label}
-                    </ModifiedLink>
-                ))}
+                    {links.map((link) => (
+                        <ModifiedLink key={link.href} href={link.href}>
+                            {link.label}
+                        </ModifiedLink>
+                    ))}
+                    <div onClick={() => setExpandSearch(true)}>
+                        <ModifiedLink href="#">
+                            AI Search
+                        </ModifiedLink>
+                    </div>
                 </div>
 
-                <div onClick={() => setExpandSearch(true)}>
-                    <ModifiedLink href="#">
-                        AI Search
-                    </ModifiedLink>
-                </div>
 
                 <div className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
                     <ModifiedLink href="/contact">
