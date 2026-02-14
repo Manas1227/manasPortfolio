@@ -9,10 +9,9 @@ const links = [
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/journey", label: "Journey" },
-    { href: "/ai", label: "AI" },
 ]
 
-export default function Navbar() {
+export default function Navbar( { setExpandSearch } : { setExpandSearch: (value: boolean) => void }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -58,6 +57,12 @@ export default function Navbar() {
                         {link.label}
                     </ModifiedLink>
                 ))}
+                </div>
+
+                <div onClick={() => setExpandSearch(true)}>
+                    <ModifiedLink href="#">
+                        AI Search
+                    </ModifiedLink>
                 </div>
 
                 <div className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
@@ -112,6 +117,9 @@ export default function Navbar() {
                                 {link.label}
                             </motion.a>
                         ))}
+                        <div className="text-sm" onClick={() => setExpandSearch(true)}>
+                            AI Search
+                        </div>
                         <Link href="/contact" className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1" onClick={() => setIsOpen(false)}>
                             Contact
                         </Link>
