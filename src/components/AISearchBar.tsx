@@ -1,11 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function SearchBar() {
+export default function SearchBar( { externalSearch, onExternalHandled } : { externalSearch: boolean | null, onExternalHandled: () => void }) {
     const [query, setQuery] = useState("");
     const [isExpanded, setIsExpanded] = useState(false);
+
+    { /* Sync with external trigger from Navbar's AI Search */ }
+    useEffect(() => {
+        if (externalSearch !== null) setIsExpanded(externalSearch);
+        onExternalHandled();
+    }, [externalSearch]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

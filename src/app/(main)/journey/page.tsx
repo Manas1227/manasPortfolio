@@ -126,7 +126,7 @@ export default function TimelinePage() {
                 </div>
                 
                 <motion.div
-                  initial={{ scale: 0.6, opacity: 0 }}
+                  initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.5 + (index * 0.3) }}
                   className="relative z-10"

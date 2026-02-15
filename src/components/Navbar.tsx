@@ -9,10 +9,9 @@ const links = [
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/journey", label: "Journey" },
-    { href: "/ai", label: "AI" },
 ]
 
-export default function Navbar() {
+export default function Navbar( { setExpandSearch } : { setExpandSearch: (value: boolean) => void }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -21,9 +20,9 @@ export default function Navbar() {
     // Close on outside click
     useEffect(() => {
         function handleClick(e: MouseEvent) {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
-            setIsOpen(false);
-        }
+            if (ref.current && !ref.current.contains(e.target as Node)) {
+                setIsOpen(false);
+            }
         }
         document.addEventListener("mousedown", handleClick);
         return () => document.removeEventListener("mousedown", handleClick);
@@ -53,12 +52,18 @@ export default function Navbar() {
 
                 {/* Navigation Links */}
                 <div className="flex gap-6 py-1 item-center text-sm">
-                {links.map((link) => (
-                    <ModifiedLink key={link.href} href={link.href}>
-                        {link.label}
-                    </ModifiedLink>
-                ))}
+                    {links.map((link) => (
+                        <ModifiedLink key={link.href} href={link.href}>
+                            {link.label}
+                        </ModifiedLink>
+                    ))}
+                    <div onClick={() => setExpandSearch(true)}>
+                        <ModifiedLink href="#">
+                            AI Search
+                        </ModifiedLink>
+                    </div>
                 </div>
+
 
                 <div className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1">
                     <ModifiedLink href="/contact">
@@ -112,6 +117,9 @@ export default function Navbar() {
                                 {link.label}
                             </motion.a>
                         ))}
+                        <div className="text-sm" onClick={() => setExpandSearch(true)}>
+                            AI Search
+                        </div>
                         <Link href="/contact" className="text-sm bg-[#00ffc81c] rounded-lg px-2 py-1" onClick={() => setIsOpen(false)}>
                             Contact
                         </Link>
