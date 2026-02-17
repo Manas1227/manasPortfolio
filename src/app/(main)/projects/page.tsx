@@ -17,14 +17,14 @@ export default function Projects() {
             </motion.h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects && projects.map((project, index) => (
-                    <IndividualProject project={project} key={index} index={index}/>
+                    <ProjectCard project={project} key={index} index={index}/>
                 ))} 
             </div>
         </section>
     )
 }
 
-export function IndividualProject({ project, index } : { project: Project, index: number}) {
+export function ProjectCard({ project, index } : { project: Project, index: number}) {
     const [readMore, setReadMore] = useState(false);
     const [isOverFlowing, setIsOverFlowing] = useState(false);
     const descriptionRef = useRef<HTMLDivElement | null>(null);
@@ -38,20 +38,20 @@ export function IndividualProject({ project, index } : { project: Project, index
     return(
         <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="grid grid-rows-[auto_1fr_auto_auto] glass p-6 rounded-lg shadow-md"
+            animate={{ opacity: 1, y: 0, transition:{ duration: 0.6, delay: index * 0.2 } }}
+            whileHover={{ borderColor: "rgb(255 255 255 / 0.4)", transition: {duration: 0.3, ease: "easeInOut"} }}
+            className="glass p-6 rounded-lg"
         >
             <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
             <p 
                 ref={descriptionRef} 
-                className={`text-gray-400 text-justify ${readMore ? "" : "line-clamp-2"} ${isOverFlowing ? "" : "mb-4"}`}
+                className={`text-gray-400 text-justify ${readMore ? "" : "line-clamp-3"} ${isOverFlowing ? "" : "mb-4"}`}
             >
                 {project.description}
             </p>
             {isOverFlowing && (
                 <button 
-                    className="text-gray-500 hover:text-gray-300 mb-4 text-right text-xs" 
+                    className="text-gray-500 hover:text-gray-300 mb-4 w-full text-right text-xs" 
                     onClick={() => setReadMore((prev) => !prev)}
                 >
                     {readMore ? "Read Less ↑" : "Read More ↓"}
@@ -59,12 +59,20 @@ export function IndividualProject({ project, index } : { project: Project, index
             )}
             <div className="flex flex-wrap gap-2 mb-4">
                 {project.techStack.map((tech, techIndex) => (
-                    <span key={techIndex} className="glass text-sm px-2 py-1 rounded">{tech}</span>
+                    <motion.span 
+                        key={techIndex} 
+                        className="glass text-sm px-2 py-1 rounded transition-all"
+                        whileHover={{ backgroundColor: "transparent", borderColor: "transparent" }}
+                    >
+                        {tech}
+                    </motion.span>
                 ))}
             </div>
-            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-                Link to Project
-            </a>
+            {project.githubLink && (
+                <a href={project.githubLink} target="_blank" className="text-blue-400 hover:underline">
+                    Link to Project
+                </a>
+            )}
         </motion.div>
     )
 }

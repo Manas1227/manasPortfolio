@@ -2,7 +2,7 @@ export type Project = {
     title: string;
     description: string;
     techStack: string[];
-    githubLink: string;
+    githubLink?: string;
 }
 
 export const projects: Project[] = [
@@ -23,5 +23,10 @@ export const projects: Project[] = [
         description: "Developed a scalable wine quality prediction model on AWS using Spark, implementing parallel data processing, cloud-based ML training and containerized environments for portable, reproducible deployment.",
         techStack: ["Python", "PySpark", "Spark MLlib", "Apache Spark", "AWS", "Docker"],
         githubLink: "https://github.com/Manas1227/cs643-853-pa2-mb2332"
+    },
+    {
+        title: "MenWed Showroom: Automated Customer Engagement App",
+        description: "I built a specialized Customer Relationship Management tool that does more than just store data. It ensures long-term relationships by capturing key dates like engagement and wedding anniversaries at the point of sale, the app acts as a digital personal assistant for the brand.",
+        techStack: ["Java", "Android Studio", "Firebase", "XML"],
     },
 ]
