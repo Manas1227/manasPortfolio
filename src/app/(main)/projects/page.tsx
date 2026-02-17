@@ -45,13 +45,13 @@ export function IndividualProject({ project, index } : { project: Project, index
             <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
             <p 
                 ref={descriptionRef} 
-                className={`text-gray-400 ${readMore ? "" : "line-clamp-2"} ${isOverFlowing ? "" : "mb-4"}`}
+                className={`text-gray-400 text-justify ${readMore ? "" : "line-clamp-2"} ${isOverFlowing ? "" : "mb-4"}`}
             >
                 {project.description}
             </p>
             {isOverFlowing && (
                 <button 
-                    className="text-gray-500 hover:text-gray-300 justify-start mb-4 text-left text-xs" 
+                    className="text-gray-500 hover:text-gray-300 mb-4 text-right text-xs" 
                     onClick={() => setReadMore((prev) => !prev)}
                 >
                     {readMore ? "Read Less ↑" : "Read More ↓"}
