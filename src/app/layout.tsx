@@ -1,6 +1,7 @@
 import "./globals.css";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import CursorDot from "@/components/CursorDot";
+import AnimatedBackground from "@/components/global/AnimatedBackground";
+import CursorDot from "@/components/global/CursorDot";
+
 export const metadata = {
   title: "Manas Portfolio",
   description: "Welcome to my personal portfolio website!",

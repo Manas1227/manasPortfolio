@@ -1,7 +1,7 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import AISearchBar from "@/components/AISearchBar";
+import Navbar from "@/components/layout/Navbar";
+import AISearchBar from "@/components/layout/AISearchBar";
 import { useState } from "react";
 
 export default function RootLayout({
