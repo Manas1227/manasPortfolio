@@ -1,74 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-
-const techGroups = [
-  {
-    field: "Languages",
-    stacks: [
-      { name: "Java", src: "/tech/java.svg" },
-      { name: "JavaScript", src: "/tech/javascript.svg" },
-      { name: "TypeScript", src: "/tech/typescript.svg" },
-      { name: "Python", src: "/tech/python.svg" },
-      { name: "SQL", src: "/tech/sql.svg" },
-    ],
-  },
-  {
-    field: "Web Development",
-    stacks: [
-      { name: "Node.js", src: "/tech/nodejs.svg" },
-      { name: "React.js", src: "/tech/react.svg" },
-      { name: "Express", src: "/tech/express.svg" },
-      { name: "Next.js", src: "/tech/nextjs.svg" },
-      { name: "HTML", src: "/tech/html.svg" },
-      { name: "CSS", src: "/tech/css.svg" },
-      { name: "Socket.io", src: "/tech/socket.svg" },
-    ],
-  },
-  {
-    field: "Databases",
-    stacks: [
-      { name: "MySQL", src: "/tech/mysql.svg" },
-      { name: "PostgreSQL", src: "/tech/postgresql.svg" },
-      { name: "DynamoDB", src: "/tech/dynamodb.svg" },
-      { name: "MongoDB", src: "/tech/mongodb.svg" },
-      { name: "Redis", src: "/tech/redis.svg" },
-    ],
-  },
-  {
-    field: "Cloud Platforms",
-    stacks: [
-      { name: "AWS", src: "/tech/aws.svg" },
-      { name: "IBM Cloud", src: "/tech/ibm.svg" },
-      { name: "Serverless", src: "/tech/serverless.svg" },
-    ],
-  },
-  {
-    field: "Testing",
-    stacks: [
-      { name: "Jest", src: "/tech/jest.svg" },
-      { name: "Mocha", src: "/tech/mocha.svg" },
-    ]
-  },
-  {
-    field: "Data Analytics & ML",
-    stacks: [
-      { name: "Pandas", src: "/tech/pandas.svg" },
-      { name: "NumPy", src: "/tech/numpy.svg" },
-      { name: "Scikit-Learn", src: "/tech/scikitlearn.svg" },
-      { name: "Tableau", src: "/tech/tableau.svg" },
-      { name: "Power BI", src: "/tech/powerbi.svg" },
-    ]
-  },
-  {
-    field: "DevOps & Tools",
-    stacks: [
-      { name: "Docker", src: "/tech/docker.svg" },
-      { name: "Git", src: "/tech/git.svg" },
-      { name: "Agile", src: "/tech/agile.svg" },
-    ],
-  }
-];
+import { techGroups } from "@/data/about";
 
 const curtainVariant: Variants = {
   hidden: {
@@ -85,7 +18,6 @@ const curtainVariant: Variants = {
     },
   }),
 };
-
 
 export default function AboutSection() {
   return (
@@ -179,8 +111,8 @@ export default function AboutSection() {
             }}
           >
             <motion.div
-              className="flex gap-4 whitespace-nowrap"
-              animate={{ x: ["0%", "-80%"] }}
+              className="flex w-max gap-4"
+              animate={{ x: ["0%", "-50%"] }}
               transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             >
               {[...techGroups, ...techGroups].map((group, idx) => (
@@ -207,8 +139,8 @@ export default function AboutSection() {
                       <div
                         key={tech.name}
                         className="flex items-center gap-2 px-3 py-1
-                                   text-xm text-white/90 flex-shrink-0
-                                   hover:scale-110 transition-transform duration-200 hover:bg-white/10 rounded-full p-2"
+                                  text-xm text-white/90 flex-shrink-0
+                                  hover:scale-110 transition-transform duration-200 hover:bg-white/10 rounded-full p-2"
                       >
                         <motion.img
                           src={tech.src}
