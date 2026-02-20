@@ -32,7 +32,10 @@ export async function POST( req: Request ) {
             { status: 200 }
         );
     } catch (error: any) {
-        const message = JSON.parse(error.message).message || "Something went wrong!";
+        const message = 
+            error.status === 429 
+                ? "Out of brainpower for today. I'll be ready for more quesitons tomorrow." 
+                : JSON.parse(error.message).message || "Something went wrong!";
         const status = error.status || 500;
         return NextResponse.json(
             { error: message}, 
