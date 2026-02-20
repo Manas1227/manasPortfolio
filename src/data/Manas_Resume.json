@@ -1,0 +1,145 @@
+[
+  {
+    "Personal Information": {
+      "Full Name": "Manas Bhut",
+      "Email": "manasbhut@gmail.com",
+      "Location": "Marlton, NJ, USA",
+      "Github Profile": "https://github.com/Manas1227",
+      "LinkedIn Profile": "www.linkedin.com/in/manas-bhut-6aa0931a7",
+      "Personal Website": "https://manasbhut.vercel.app"
+    },
+    "Experience": [
+      {
+        "Job Title": "Inventory Supervisor - Pharmacy Technician",
+        "Company": "Rite-Aid Central Fill",
+        "Start Date": "Jun 2023",
+        "Description": "Managed inventory operations while maintaining accuracy, efficiency, and process compliance across the facility.\nOversaw purchase orders, inventory updates, and discrepancy resolution, ensuring smooth day-to-day operations.\nRevised system reports to improve operational efficiency and reduce errors.\nSupported organizational and profit goals by managing preferred inventory, updating system records, and optimizing stock allocation.",
+        "End Date": "Oct 2025"
+      },
+      {
+        "Job Title": "Software Developer",
+        "Company": "Techflitter Solutions Pvt. Ltd.",
+        "Start Date": "Jun 2021",
+        "Description": "Developed and optimized modular web-based SaaS applications using Java, Node.js, and React.js, ensuring bug-free releases in an agile environment.\nCollaborated with cross-functional teams to identify requirements and address issues for high-volume web applications.\nUtilized AWS services (Lambda Functions, CloudWatch, S3) and Serverless architecture to deploy scalable solutions.\nEnhanced data storage and retrieval performance by 50% through optimization of DynamoDB queries and Lambda functions.\nConducted comprehensive unit, functional, and integration tests using Mocha and Jest frameworks.",
+        "End Date": "Mar 2023"
+      },
+      {
+        "Job Title": "MERN Stack Developer Intern",
+        "Company": "Raven Technolabs Pvt. Ltd.",
+        "Start Date": "Jan 2021",
+        "Description": "Collaborated with clients to gather requirements and developed reusable software components following agile methodologies.\nContributed to the development of server-side REST APIs using Node.js and user interfaces with React.js, HTML, and CSS.\nAssisted in the creation of a Customer Relationship Management application for PDF invoice management.",
+        "End Date": "Jun 2021"
+      }
+    ],
+    "Education": [
+      {
+        "Institution": "New Jersey Institute of Technology, NJ, USA",
+        "Degree": "Master's Degree",
+        "Graduation Duration": "January 2024 - December 2025",
+        "Major": "Computer Science",
+        "Grade": "3.75/4"
+      },
+      {
+        "Institution": "U.V. Patel College of Engineering, Ganpat University, Gujarat, India",
+        "Degree": "Bachlor's Degree",
+        "Graduation Duration": "June 2017 - April 2021",
+        "Major": "Computer Engineering",
+        "Grade": "8.27/10"
+      }
+    ],
+    "Skills": [
+      "Java",
+      "JavaScript",
+      "Python",
+      "TypeScript",
+      "SQL",
+      "Node.js",
+      "Express.js",
+      "React.js",
+      "HTML",
+      "CSS",
+      "MongoDB",
+      "DynamoDB",
+      "SQL",
+      "AWS (Lambda Functions, CloudWatch, S3)",
+      "Mocha",
+      "Jest",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Tableau",
+      "Power BI",
+      "Docker",
+      "Redis",
+      "Socket.io",
+      "Serverless",
+      "Agile (Jira, Slack, GitHub)"
+    ],
+    "Languages": ["English", "Hindi", "Gujarati"],
+    "Projects": [
+      {
+        "Project Name": "Exclusive Clothes Showroom",
+        "Description": "Developed an Android application for a clothes showroom using Java and Firebase, facilitating customer subscription management.",
+        "Link": ""
+      },
+      {
+        "Project Name": "Messaging App",
+        "Description": "Created an Android messaging application allowing users to communicate individually or in groups, utilizing Java and Firebase for backend services.",
+        "Link": ""
+      },
+      {
+        "Project Name": "Micro Mobility Connector",
+        "Description": "Developed a connector for communication between APIs and IoT devices using Java and Node.js, integrating various protocols and technologies, including TCP, MQTT, AMQP, and Socket.io.",
+        "Link": ""
+      },
+      {
+        "Project Name": "Admin Panel",
+        "Description": "Built a management interface using React.js and Node.js, leveraging AWS services (S3, Lambda, DynamoDB) and Serverless architecture for scalability.",
+        "Link": ""
+      },
+      {
+        "Project Name": "Hotel Management",
+        "Description": "Created a web application for hotel management using Express.js and MongoDB, facilitating room bookings and management.",
+        "Link": ""
+      }
+    ],
+    "Certifications": [
+      {
+        "Organization": "IBM",
+        "Title": "Artificial Intelligence Fundamentals",
+        "Link": "https://www.credly.com/badges/22f37315-573c-40c3-9dc0-79b2c46ed7a8",
+        "Year": 2026
+      },
+      {
+        "Organization": "IBM",
+        "Title": "Getting Started with Artificial Intelligence",
+        "Link": "https://www.credly.com/badges/ee3e525a-6f3c-476c-97b0-fe7c91c31537",
+        "Year": 2026
+      },
+      {
+        "Organization": "IBM",
+        "Title": "Data Fundamentals",
+        "Link": "https://www.credly.com/badges/47e7da70-2e00-4537-82df-126457037664",
+        "Year": 2025
+      },
+      {
+        "Organization": "AWS",
+        "Title": "Cloud Practitioner Essentials Course Completion",
+        "Link": "",
+        "Year": 2025
+      },
+      {
+        "Organization": "Ganpat University",
+        "Title": "Coordinator in Gujarat Hackathon at Ganpat University",
+        "Link": "",
+        "Year": "2019-2020"
+      },
+      {
+        "Organization": "IEEE - Ganpat University",
+        "Title": "Volunteer & Participant in IEEE event",
+        "Link": "",
+        "Year": 2020
+      }
+    ]
+  }
+]

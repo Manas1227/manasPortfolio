@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function SearchBar( { externalSearch, onExternalHandled } : { externalSearch: boolean | null, onExternalHandled: () => void }) {
+    const [status, setStatus] = useState<{type: "default" | "success" | "error", message: string}>({type: "default", message: "Powered by Google Gemini ✦ It may make mistake."});
     const [query, setQuery] = useState("");
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -13,10 +14,33 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
         onExternalHandled();
     }, [externalSearch]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // TODO: Integrate with OpenAI
-        console.log("Search query:", query);
+        try {
+            const res = await fetch("/api/ai_search", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    query
+                })
+            })
+            
+            const data = await res.json();
+            console.log("API Response", data)
+            if(!data.ok) throw new Error("Something went wrong, please try again!")
+            setStatus({
+                type: "success",
+                message: data.answer
+            })
+        } catch (error) {
+            const msg = error instanceof Error ? error.message : "Something went wrong, please try again."
+            setStatus({
+                type: "error",
+                message: msg
+            })
+        } finally {
+            setQuery("");
+        }
     };
 
     return (
@@ -25,14 +49,15 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1 }}
+                className="relative"
             >
-                <form onSubmit={handleSubmit} className="relative">
-                    <motion.div
-                        animate={{ width: isExpanded ? Math.min(window.innerWidth - 40, 500) : 60 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="glass rounded-full px-4 py-3 flex items-center gap-3 overflow-hidden"
-                        style={{ transformOrigin: 'center' }}
-                    >
+                <motion.form
+                    onSubmit={handleSubmit}
+                    animate={{ width: isExpanded ? Math.min(window.innerWidth - 40, 500) : 60 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="glass rounded-full px-4 py-3 flex justify-self-center gap-3 overflow-hidden"
+                    style={{ transformOrigin: 'center' }}
+                >
                     <motion.button
                         type="button"
                         onClick={() => setIsExpanded(!isExpanded)}
@@ -48,11 +73,11 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
 
                     <motion.input
                         type="text"
+                        name="search_query"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Ask AI about Manas..."
                         animate={{ opacity: isExpanded ? 1 : 0 }}
-                        transition={{ duration: 0.2 }}
                         className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm"
                         style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}
                     />
@@ -72,9 +97,20 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
                             </svg>
                         </motion.button>
                     )}
-                </motion.div>
-            </form>
-        </motion.div>
+                </motion.form>
+                { isExpanded && 
+                    <motion.p 
+                        key="status"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, y: 4 }}
+                        transition={{ duration: 0.3, ease: "easeInOut", delay: 0.3 }}
+                        className={`text-xs text-center text-nowrap mt-1 ${status.type === "error" ? 'text-pink-400' : 'text-gray-400'}`}
+                    >
+                        {status.message}
+                    </motion.p>
+                }    
+            </motion.div>
         </div>
     );
 }
