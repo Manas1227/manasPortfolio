@@ -27,7 +27,6 @@ export async function POST( req: Request ) {
             contents: prompt,
         });
 
-        console.dir(result, { depth: null });
         return NextResponse.json(
             { answer: result.text },
             { status: 200 }

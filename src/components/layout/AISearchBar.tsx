@@ -26,8 +26,7 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
             })
             
             const data = await res.json();
-            console.log("API Response", data)
-            if(!data.ok) throw new Error("Something went wrong, please try again!")
+            if(!res.ok) throw new Error("Something went wrong, please try again!")
             setStatus({
                 type: "success",
                 message: data.answer
