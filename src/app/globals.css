@@ -11,10 +11,11 @@ body {
   background: transparent
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* I used @layer and @apply tobe able to override the style later in component */
+@layer components {
+  .glass {
+    @apply bg-[rgba(255,255,255,0.08)] backdrop-blur-md border border-solid border-white/10
+  }
 }
 
 .nav-hover {
@@ -61,4 +62,20 @@ button, img, Link {
     text-align: justify;
     @apply md:text-2xl text-xl text-gray-200 space-y-4;
   }
+}
+
+::-webkit-scrollbar {
+  @apply w-2 bg-transparent
+}
+
+::-webkit-scrollbar-track {
+  margin-right: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-white/15
+}
+
+::-webkit-scrollbar-button {
+  background-color: transparent;
 }
