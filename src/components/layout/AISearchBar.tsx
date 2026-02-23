@@ -38,9 +38,10 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
                     query
                 })
             })
-            
-            if(!res.ok) throw new Error("Something went wrong, please try again!");
+
             const data = await res.json();
+            
+            if(!res.ok) throw new Error(data.error || "Something went wrong, please try again!");
             
             // add ai's response to the messages
             setMessages(prev => [...prev, { role: "ai", text: data.answer}]);
@@ -105,7 +106,7 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
                             initial={{ x: "-100%" }}
                             animate={{ x: "100%", opacity: [1, 0.5, 1] }}
                             transition={{ repeat: Infinity, duration: 1.5, ease: [0.4, 0, 0.6, 1] }}
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent"
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
                         />
                     )}
                     

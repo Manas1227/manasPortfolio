@@ -37,14 +37,16 @@
         "Degree": "Master's Degree",
         "Graduation Duration": "January 2024 - December 2025",
         "Major": "Computer Science",
-        "Grade": "3.75/4"
+        "Grade": "3.75/4",
+        "Completed": true
       },
       {
         "Institution": "U.V. Patel College of Engineering, Ganpat University, Gujarat, India",
         "Degree": "Bachlor's Degree",
         "Graduation Duration": "June 2017 - April 2021",
         "Major": "Computer Engineering",
-        "Grade": "8.27/10"
+        "Grade": "8.27/10",
+        "Completed": true
       }
     ],
     "Skills": [
