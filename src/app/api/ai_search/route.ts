@@ -81,10 +81,13 @@ export async function POST( req: Request ) {
             model: "gemini-3-flash-preview",
             contents: prompt,
             config: {
-                temperature: 0.5,
-                topP: 0.9,
-                topK: 40,
-                maxOutputTokens: 800,
+                thinkingConfig: {
+                    thinkingBudget: 150, // Incase the model needs to do some internal processing for complex questions.
+                },
+                temperature: 0.5, // Control the randomness of the model's output. Lower: diterministic, Higher: more creative.
+                topP: 0.9, // Consider tokens up to the cumulative probability of 0.9 for generating responses. Balances quality and diversity.
+                topK: 40, // Number of response variations to return. Higher values can increase diversity but also cost.
+                maxOutputTokens: 2000, // Limit total number of tokens the model can generate in the response to control length and cost
                 responseMimeType: "application/json",
                 responseJsonSchema: responseSchema
             }

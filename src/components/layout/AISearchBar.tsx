@@ -8,7 +8,7 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
     const [error, setError] = useState<{message: string} | null>(null);
     const [query, setQuery] = useState("");
     const [isExpanded, setIsExpanded] = useState(false);
-    const [messages, setMessages] = useState<{role: "visiter" | "ai", text: string}[] >([]);
+    const [messages, setMessages] = useState<{role: "visiter" | "ai", text: string, confidence?: "HIGH" | "MEDIUM" | "LOW"}[] >([]);
     const [isLoading, setIsLoading] = useState(false);
 
     { /* Sync with external trigger from Navbar's AI Search */ }
@@ -44,7 +44,7 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
             if(!res.ok) throw new Error(data.error || "Something went wrong, please try again!");
             
             // add ai's response to the messages
-            setMessages(prev => [...prev, { role: "ai", text: data.answer}]);
+            setMessages(prev => [...prev, { role: "ai", text: data.answer, confidence: data.confidence }]);
             
             // Set the Error state to null after success response in case any previous errors have occured.
             setError(null);
@@ -80,8 +80,12 @@ export default function SearchBar( { externalSearch, onExternalHandled } : { ext
                                 key={i}
                                 className={`max-w-[75%] p-3 rounded-xl text-white ${
                                     m.role === "visiter"
-                                        ? "ml-auto bg-green-900/80"
-                                        : "mr-auto bg-blue-900/80"
+                                        ? "ml-auto bg-blue-900/80"
+                                        : m.confidence === "HIGH"
+                                            ? "mr-auto bg-green-900/80"
+                                            : m.confidence === "MEDIUM"
+                                                ? "mr-auto bg-yellow-900/80"
+                                                : "mr-auto bg-red-900/80"
                                 }`}
                                 >
                                 <ReactMarkdown>{m.text}</ReactMarkdown>
