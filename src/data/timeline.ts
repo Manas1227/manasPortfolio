@@ -29,6 +29,27 @@ export type TimelineItem = EducationItem | ExperienceItem;
 
 export const timeline: TimelineItem[] = [
   {
+    type: "experience",
+    totalPeriod: "December 2024 – Present",
+    organization: "Uber Technologies Inc.",
+    orgUrl: "https://www.uber.com/",
+    orgLocation: "Remote, USA", 
+    orgLogo: "/timeline/uber.svg",
+    role: [
+        {
+            title: "Software Developer",
+            period: "December 2024 – Present",
+            description: [
+                "Built a real‑time LLM intent‑classification system with Python and OpenAI, automating thousands of daily routing decisions.",
+                "Scaled event‑driven pipelines using Node.js and Kafka to handle millions of daily events efficiently.",
+                "Designed a GraphQL federation layer with TypeScript and Apollo to unify 14+ services and cut cross‑service latency.",
+                "Developed demand‑forecasting models with scikit‑learn to support data‑driven surge pricing decisions.",
+                "Reduced API latency from 900 ms to 140 ms through Redis caching and optimized query execution.",
+            ],
+        }
+    ]
+
+  },{
     type: "education",
     period: "January 2024 - December 2025",
     title: "M.S. in Computer Science",
@@ -45,26 +66,21 @@ export const timeline: TimelineItem[] = [
     ],
   },{
     type: "experience",
-    totalPeriod: "January 2023 – October 2025",
-    organization: "Rite Aid",
-    orgUrl: "https://content.riteaid.com/",
-    orgLocation: "Delran, NJ",
-    orgLogo: "/timeline/riteaid.svg",
+    totalPeriod: "April 2023 - December 2023",
+    organization: "JP Morgan Chase",
+    orgUrl: "https://www.jpmorganchase.com/",
+    orgLocation: "Remote, USA", 
+    orgLogo: "/timeline/jpmorgan.svg",
     role: [
         {
-            title: "Inventory Supervisor Centeral Fill",
-            period: "May 2025 - October 2025",
+            title: "Software Developer",
+            period: "April 2023 - December 2023",
             description: [
-                "Managed daily inventory operations with a focus on accuracy, efficiency, and process consistency.",
-                "Handled purchase orders, stock updates, and discrepancy resolution to keep workflows smooth.",
-                "Reviewed system reports to reduce errors and improve operational efficiency.",
-                "Supported organizational goals by maintaining preferred inventory levels and optimizing stock allocation.",
-
+                "Built microservices and UI workflows using Java, Spring Boot, React, and PostgreSQL to significantly reduce daily sync times.",
+                "Automated CI/CD pipelines with GitLab, Docker, and Terraform to accelerate releases and improve deployment reliability.",
+                "Implemented LLM‑powered document processing using OpenAI and LangChain to streamline legal reviews.",
+                "Led a full‑stack migration from monolith to Kubernetes microservices with Helm deployments and team mentorship.",
             ],
-        },{
-            title: "Pharmacy Technician Centeral Fill",
-            period: "January 2023 - April 2025",
-            imageSrc: "/timeline/EOM_RiteAid.jpg",
         }
     ]
 

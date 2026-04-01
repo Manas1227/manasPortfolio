@@ -119,7 +119,7 @@ export default function TimelinePage() {
                     alt={item.organization}
                     width={"150px"}
                     height={"100px"}
-                    className="rounded-md bg-transparent"
+                    className="bg-transparent"
                     aria-hidden={item.organization ? "false" : "true"}
                     variants={logoVariants}
                   />

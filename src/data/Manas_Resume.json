@@ -2,7 +2,7 @@
   {
     "Personal Information": {
       "Full Name": "Manas Bhut",
-      "Email": "manasbhut@gmail.com",
+      "Email": "manas.bhut@outlook.com",
       "Location": "Marlton, NJ, USA",
       "Github Profile": "https://github.com/Manas1227",
       "LinkedIn Profile": "www.linkedin.com/in/manas-bhut-6aa0931a7",
@@ -10,11 +10,18 @@
     },
     "Experience": [
       {
-        "Job Title": "Inventory Supervisor - Pharmacy Technician",
-        "Company": "Rite-Aid Central Fill",
-        "Start Date": "Jun 2023",
-        "Description": "Managed inventory operations while maintaining accuracy, efficiency, and process compliance across the facility.\nOversaw purchase orders, inventory updates, and discrepancy resolution, ensuring smooth day-to-day operations.\nRevised system reports to improve operational efficiency and reduce errors.\nSupported organizational and profit goals by managing preferred inventory, updating system records, and optimizing stock allocation.",
-        "End Date": "Oct 2025"
+        "Job Title": "Software Developer",
+        "Company": "Uber Technologies Inc.",
+        "Start Date": "December 2024",
+        "Description": "Built a real‑time LLM intent‑classification system with Python and OpenAI, automating thousands of daily routing decisions.\nScaled event‑driven pipelines using Node.js and Kafka to handle millions of daily events efficiently.\nDesigned a GraphQL federation layer with TypeScript and Apollo to unify 14+ services and cut cross‑service latency.\nDeveloped demand‑forecasting models with scikit‑learn to support data‑driven surge pricing decisions.\nReduced API latency from 900 ms to 140 ms through Redis caching and optimized query execution.",
+        "End Date": "Present"
+      },
+      {
+        "Job Title": "Software Developer",
+        "Company": "JP Morgan Chase & Co.",
+        "Start Date": "April 2023",
+        "Description": "Built microservices and UI workflows using Java, Spring Boot, React, and PostgreSQL to significantly reduce daily sync times.\nAutomated CI/CD pipelines with GitLab, Docker, and Terraform to accelerate releases and improve deployment reliability.\nImplemented LLM‑powered document processing using OpenAI and LangChain to streamline legal reviews.\nLed a full‑stack migration from monolith to Kubernetes microservices with Helm deployments and team mentorship.",
+        "End Date": "December 2023"
       },
       {
         "Job Title": "Software Developer",

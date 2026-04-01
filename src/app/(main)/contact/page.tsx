@@ -9,7 +9,7 @@ const INTROWORDS = ["a project idea", "a question", "a feature", "a bug", "new i
 const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Resend"];
 
 const GETINTOUCH = [
-  {name: "Email", image: "/tech/email_wb.svg", href: "mailto:manasbhut@gmail.com"},
+  {name: "Email", image: "/tech/email_wb.svg", href: "mailto:manas.bhut@outlook.com"},
   {name: "LinkedIn", image: "/tech/linkedin_wb.svg", href: "https://www.linkedin.com/in/manas-bhut-6aa0931a7/"},
   {name: "GitHub", image: "/tech/github_wb.svg", href: "https://github.com/Manas1227"},
 ]
