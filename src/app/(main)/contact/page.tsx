@@ -193,7 +193,7 @@ export default function ContactPage() {
 
           {/* Resume */}
           <motion.a
-            href={"/Your_Resume.pdf"}
+            href={"https://drive.google.com/uc?export=download&id=18LIHrUxdcE-tdkfnqDOnhJ0bd9EuUv5y"}
             download
             className="flex items-center px-4 py-2 bg-white/10 rounded-lg
                       hover:scale-110 transition-transform duration-200 hover:bg-teal-500 hover:text-black"
