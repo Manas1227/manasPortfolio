@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { PERSONAL_EMAIL } from "@/lib/env";
 
 const INTROWORDS = ["a project idea", "a question", "a feature", "a bug", "new idea", "a job opportunity"];
 
 const LIBRARIES = ["Next.js", "Tailwind CSS", "Framer Motion", "Resend"];
 
 const GETINTOUCH = [
-  {name: "Email", image: "/tech/email_wb.svg", href: "mailto:manasbhut@gmail.com"},
+  {name: "Email", image: "/tech/email_wb.svg", href: `mailto:${PERSONAL_EMAIL}`},
   {name: "LinkedIn", image: "/tech/linkedin_wb.svg", href: "https://www.linkedin.com/in/manas-bhut-6aa0931a7/"},
   {name: "GitHub", image: "/tech/github_wb.svg", href: "https://github.com/Manas1227"},
 ]
@@ -193,7 +194,7 @@ export default function ContactPage() {
 
           {/* Resume */}
           <motion.a
-            href={"/Your_Resume.pdf"}
+            href={"https://drive.google.com/uc?export=download&id=185JcAmDZzCIKRkRfNXwdBiqgSv-tyegE"}
             download
             className="flex items-center px-4 py-2 bg-white/10 rounded-lg
                       hover:scale-110 transition-transform duration-200 hover:bg-teal-500 hover:text-black"
