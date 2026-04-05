@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { Project, projects } from "@/data/projects";
 import { useState, useEffect, useRef } from "react";
+import { GETINTOUCH } from "@/data/contact";
+
+const githubLink = GETINTOUCH.find(contact => contact.name === "GitHub")?.href || "#";
 
 export default function Projects() {
     return (
@@ -18,8 +21,17 @@ export default function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects && projects.map((project, index) => (
                     <ProjectCard project={project} key={index} index={index}/>
-                ))} 
+                ))}
             </div>
+            <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0, transition:{ duration: 0.6, delay: 0.2 } }}
+                whileHover={{ borderColor: "rgb(255 255 255 / 0.4)", transition: {duration: 0.3, ease: "easeInOut"} }}
+                className="glass p-1 ml-3 mr-3 rounded-lg"
+                href={githubLink} target="_blank"
+            >
+                <h2 className="text-lg md:text-2xl font-semibold mb-2 text-center">Checkout More projects on Github</h2>
+            </motion.a>
         </section>
     )
 }
