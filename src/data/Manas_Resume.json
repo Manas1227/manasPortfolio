@@ -11,20 +11,6 @@
     "Experience": [
       {
         "Job Title": "Software Developer",
-        "Company": "Uber Technologies Inc.",
-        "Start Date": "December 2024",
-        "Description": "Built a real‑time LLM intent‑classification system with Python and OpenAI, automating thousands of daily routing decisions.\nScaled event‑driven pipelines using Node.js and Kafka to handle millions of daily events efficiently.\nDesigned a GraphQL federation layer with TypeScript and Apollo to unify 14+ services and cut cross‑service latency.\nDeveloped demand‑forecasting models with scikit‑learn to support data‑driven surge pricing decisions.\nReduced API latency from 900 ms to 140 ms through Redis caching and optimized query execution.",
-        "End Date": "Present"
-      },
-      {
-        "Job Title": "Software Developer",
-        "Company": "JP Morgan Chase & Co.",
-        "Start Date": "April 2023",
-        "Description": "Built microservices and UI workflows using Java, Spring Boot, React, and PostgreSQL to significantly reduce daily sync times.\nAutomated CI/CD pipelines with GitLab, Docker, and Terraform to accelerate releases and improve deployment reliability.\nImplemented LLM‑powered document processing using OpenAI and LangChain to streamline legal reviews.\nLed a full‑stack migration from monolith to Kubernetes microservices with Helm deployments and team mentorship.",
-        "End Date": "December 2023"
-      },
-      {
-        "Job Title": "Software Developer",
         "Company": "Techflitter Solutions Pvt. Ltd.",
         "Start Date": "Jun 2021",
         "Description": "Developed and optimized modular web-based SaaS applications using Java, Node.js, and React.js, ensuring bug-free releases in an agile environment.\nCollaborated with cross-functional teams to identify requirements and address issues for high-volume web applications.\nUtilized AWS services (Lambda Functions, CloudWatch, S3) and Serverless architecture to deploy scalable solutions.\nEnhanced data storage and retrieval performance by 50% through optimization of DynamoDB queries and Lambda functions.\nConducted comprehensive unit, functional, and integration tests using Mocha and Jest frameworks.",
