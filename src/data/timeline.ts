@@ -29,6 +29,31 @@ export type TimelineItem = EducationItem | ExperienceItem;
 
 export const timeline: TimelineItem[] = [
   {
+    type: "experience",
+    totalPeriod: "January 2023 – October 2025",
+    organization: "Rite Aid",
+    orgUrl: "https://content.riteaid.com/",
+    orgLocation: "Delran, NJ",
+    orgLogo: "/timeline/riteaid.svg",
+    role: [
+      {
+        title: "Inventory Supervisor Centeral Fill",
+        period: "May 2025 - October 2025",
+        description: [
+          "Managed daily inventory operations with a focus on accuracy, efficiency, and process consistency.",
+          "Handled purchase orders, stock updates, and discrepancy resolution to keep workflows smooth.",
+          "Reviewed system reports to reduce errors and improve operational efficiency.",
+          "Supported organizational goals by maintaining preferred inventory levels and optimizing stock allocation.",
+        ],
+      },
+      {
+        title: "Pharmacy Technician Centeral Fill",
+        period: "January 2023 - April 2025",
+        imageSrc: "/timeline/EOM_RiteAid.jpg",
+      },
+    ],
+  },
+  {
     type: "education",
     period: "January 2024 - December 2025",
     title: "M.S. in Computer Science",
