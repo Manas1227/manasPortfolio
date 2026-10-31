@@ -28,6 +28,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          style={{ fontSize: "clamp(1.5rem, 5vw, 2.25rem)" }}
           className="title"
         >
           Hello{" "}
@@ -45,7 +46,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="content-text"
+            className="content-text text-base md:text-2xl"
           >
             <p className="leading-relaxed">
               My work spans frontend development, backend services, and cloud
@@ -63,7 +64,7 @@ export default function AboutSection() {
           </motion.div>
 
           {/* Right: Animated visual */}
-          <div className="flex item-center justify-center w-full">
+          <div className="flex items-center justify-center w-full">
             <motion.img
               src={"/MB_About.png"}
               alt="Profile Picture"
@@ -84,7 +85,7 @@ export default function AboutSection() {
                 },
               }}
               whileHover={{ scale: 1.1, rotateY: 10 }}
-              className="w-44 h-60 md:w-64 md:h-80 rounded-lg relative z-10"
+              className="w-auto h-auto rounded-lg relative z-10"
               style={{
                 maskImage:
                   "linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 10%, black 20%, black 80%, transparent 90%)",
