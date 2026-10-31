@@ -64,7 +64,7 @@ function DraggableImage({ onReload, isReload }: { onReload: () => void; isReload
                 }
             }}
             whileHover={hoverEnabled ? {scale: 1.1, rotateY: 10} : {}}
-            className="w-44 h-60 md:w-64 md:h-80 rounded-lg mb-8 relative z-10"
+            className="w-60 h-60 md:w-96 md:h-96 rounded-lg mb-8 relative z-10"
             style={{
                 maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 10%, black 20%, black 80%, transparent 90%)',
                 maskComposite: 'intersect',
