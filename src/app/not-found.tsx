@@ -45,7 +45,7 @@ export default function NotFound() {
                     initial={{ opacity: 0, scale: 0.5, rotateY: -15 }}
                     animate={{
                         opacity: 1,
-                        scale: 1,
+                        scale: 1.3,
                         rotateY: 0,
                         y: [0, -10, 0],
                     }}
